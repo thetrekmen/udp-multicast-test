@@ -2,6 +2,7 @@ import dgram from 'node:dgram';
 
 const client = dgram.createSocket('udp4');
 const LOCAL_IP_ADDRESS = '10.3.1.24'
+const MULTICAST_ADDRESS = '239.26.21.51'
 
 client.on('error', (err) => {
     console.log(`client error:\n${err.stack}`);
@@ -18,7 +19,7 @@ client.on('listening', () => {
 });
 
 client.bind(9722, LOCAL_IP_ADDRESS, function () {
-    client.addMembership('239.26.21.23', LOCAL_IP_ADDRESS);
+    client.addMembership(MULTICAST_ADDRESS, LOCAL_IP_ADDRESS);
 });
 
 
