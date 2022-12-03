@@ -8,5 +8,8 @@
     "test": "node test.js"
   },
   "author": "Pat.dev",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "audic": "^3.0.1"
+  }
 }
