@@ -16,18 +16,18 @@ client.on('error', (err) => {
 });
 
 //writing to file
-client.on('message', (msg, rinfo) => {
-    console.log(msg);
-    var stream = fs.createWriteStream("udp-stream.flac", { 'flags': 'a' });
-    stream.once('open', function (fd) {
-        stream.write(msg);
-    });
-});
-
-//printing to console
 // client.on('message', (msg, rinfo) => {
 //     console.log(msg);
+//     var stream = fs.createWriteStream("udp-stream.flac", { 'flags': 'a' });
+//     stream.once('open', function (fd) {
+//         stream.write(msg);
+//     });
 // });
+
+//printing to console
+client.on('message', (msg, rinfo) => {
+    console.log(msg);
+});
 
 client.on('listening', () => {
     const address = client.address();
